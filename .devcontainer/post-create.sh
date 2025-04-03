@@ -12,4 +12,7 @@ rm -rf ./envsubst
 # Install Task
 sudo sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
+# Install ipykernel
+sudo pip install ipykernel
+
 echo "$(date)    post-create complete" >> ~/status
