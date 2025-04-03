@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/dotnet
+{
+	"name": "fsi-azure-ai-agents-lab",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "3.12-bullseye"
+		}
+	},
+	"runArgs": [
+		"--init",
+		"--privileged"
+	],
+	"forwardPorts": [
+	],
+	"portsAttributes": {
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.azure-account",
+				"github.vscode-pull-request-github",
+				"GitHub.copilot",
+				"mindaro.mindaro",
+				"ms-toolsai.vscode-ai-remote",
+				"ms-toolsai.jupyter",
+				"task.vscode-task",
+				"ms-python.python",
+				"ms-python.debugpy"
+			]
+		}
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/azure/azure-dev/azd:0": {},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/devcontainers/features/common-utils:1": {},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {}
+	},
+	"waitFor": "postCreateCommand",
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	"postStartCommand": "bash .devcontainer/post-start.sh"
+}
