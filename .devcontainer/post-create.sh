@@ -13,6 +13,10 @@ rm -rf ./envsubst
 sudo sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
 # Install ipykernel
-sudo pip install ipykernel
-
+cd /workspaces/fsi-azure-ai-agents-lab/
+python -m venv venv
+python -m ipykernel install --user --name=venv
+pip install basemap==1.4.1
+pip install -r requirements.txt
+python -m ipykernel install --user --name=venv
 echo "$(date)    post-create complete" >> ~/status
